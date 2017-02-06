@@ -5,17 +5,35 @@
  */
 package SignInApp;
 
+import java.io.FileWriter;
+import java.io.PrintWriter;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Jason
  */
 public class CreateAccountPanel extends javax.swing.JFrame {
+    private String path;
+    private boolean append_to_file = false;
     int profCheck =0;
+    private String firstName;
+    private String lastName;
+    private String prefferedName;
     /**
      * Creates new form CreateAccountPanel
      */
     public CreateAccountPanel() {
         initComponents();
+    }
+    public CreateAccountPanel(String file_path){
+        path = file_path;
+    }
+    public CreateAccountPanel( String file_path, boolean append_value){
+        path = file_path;
+        append_to_file = append_value;
     }
 
     /**
@@ -27,9 +45,9 @@ public class CreateAccountPanel extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        FirstNameField = new javax.swing.JTextField();
-        LastNameField = new javax.swing.JTextField();
-        PrefName = new javax.swing.JTextField();
+        firstNameField = new javax.swing.JTextField();
+        lastNameField = new javax.swing.JTextField();
+        prefName = new javax.swing.JTextField();
         AddPhotoButton = new javax.swing.JButton();
         Finished = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -38,24 +56,24 @@ public class CreateAccountPanel extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        FirstNameField.setText("First Name");
-        FirstNameField.addActionListener(new java.awt.event.ActionListener() {
+        firstNameField.setText("First Name");
+        firstNameField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FirstNameFieldActionPerformed(evt);
+                firstNameFieldActionPerformed(evt);
             }
         });
 
-        LastNameField.setText("Last Name");
-        LastNameField.addActionListener(new java.awt.event.ActionListener() {
+        lastNameField.setText("Last Name");
+        lastNameField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LastNameFieldActionPerformed(evt);
+                lastNameFieldActionPerformed(evt);
             }
         });
 
-        PrefName.setText("Peffered Name");
-        PrefName.addActionListener(new java.awt.event.ActionListener() {
+        prefName.setText("Peffered Name");
+        prefName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PrefNameActionPerformed(evt);
+                prefNameActionPerformed(evt);
             }
         });
 
@@ -89,9 +107,9 @@ public class CreateAccountPanel extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(140, 140, 140)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(PrefName, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
-                    .addComponent(LastNameField)
-                    .addComponent(FirstNameField))
+                    .addComponent(prefName, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
+                    .addComponent(lastNameField)
+                    .addComponent(firstNameField))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -114,13 +132,13 @@ public class CreateAccountPanel extends javax.swing.JFrame {
                 .addGap(22, 22, 22)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addComponent(FirstNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(firstNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(LastNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lastNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(PrefName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(prefName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(AddPhotoButton))
                     .addGroup(layout.createSequentialGroup()
@@ -136,42 +154,44 @@ public class CreateAccountPanel extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void FirstNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FirstNameFieldActionPerformed
+    private void firstNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstNameFieldActionPerformed
         // TODO add your handling code here:
-        String FirstName = FirstNameField.getText();
-    }//GEN-LAST:event_FirstNameFieldActionPerformed
+        firstName = firstNameField.getText();
+        getFirst(firstName);
+    }//GEN-LAST:event_firstNameFieldActionPerformed
 
     private void FinishedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FinishedActionPerformed
-        // TODO add your handling code here:
         if (profCheck == 1){
             
         }
         else{
            StudentMainMenuFrame frame = new StudentMainMenuFrame();
            frame.setVisible(true);
+           dispose();
         }
         
     }//GEN-LAST:event_FinishedActionPerformed
-
+    
     private void AddPhotoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddPhotoButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_AddPhotoButtonActionPerformed
 
-    private void LastNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LastNameFieldActionPerformed
+    private void lastNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lastNameFieldActionPerformed
         // TODO add your handling code here:
-        String LastName = LastNameField.getText();
-    }//GEN-LAST:event_LastNameFieldActionPerformed
+        lastName = lastNameField.getText();
+    }//GEN-LAST:event_lastNameFieldActionPerformed
 
-    private void PrefNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PrefNameActionPerformed
+    private void prefNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prefNameActionPerformed
         // TODO add your handling code here:
-        String PrefferedName = PrefName.getText();
-    }//GEN-LAST:event_PrefNameActionPerformed
+        prefferedName = prefName.getText();
+    }//GEN-LAST:event_prefNameActionPerformed
 
     private void ProfessorCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProfessorCheckActionPerformed
         // TODO add your handling code here:
          profCheck = 1;
     }//GEN-LAST:event_ProfessorCheckActionPerformed
 
+    
     /**
      * @param args the command line arguments
      */
@@ -210,11 +230,34 @@ public class CreateAccountPanel extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AddPhotoButton;
     private javax.swing.JButton Finished;
-    private javax.swing.JTextField FirstNameField;
-    private javax.swing.JTextField LastNameField;
-    private javax.swing.JTextField PrefName;
     private javax.swing.JCheckBox ProfessorCheck;
+    private javax.swing.JTextField firstNameField;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JTextField lastNameField;
+    private javax.swing.JTextField prefName;
     // End of variables declaration//GEN-END:variables
+    public String getFirst(String first){
+        return firstName ;
+    }
+    public String getLast(){
+        return lastName;
+    }
+    public String getPreffered(){
+        return prefferedName;
+    }
+    public void writeToFile( String textLine ) throws IOException {
+        String first = null;
+        first = getFirst(first);
+        String last = getLast();
+        String preffered = getPreffered();
+        FileWriter write = new FileWriter( path , append_to_file);
+        PrintWriter print_line = new PrintWriter( write );
+        print_line.print(first);
+        print_line.print(last);
+        print_line.print(preffered);
+        print_line.close();
+        
+    }    
+
 }

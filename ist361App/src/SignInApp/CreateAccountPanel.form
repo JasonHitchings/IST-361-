@@ -26,9 +26,9 @@
           <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="140" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="PrefName" pref="125" max="32767" attributes="0"/>
-                  <Component id="LastNameField" alignment="0" max="32767" attributes="0"/>
-                  <Component id="FirstNameField" alignment="0" max="32767" attributes="0"/>
+                  <Component id="prefName" pref="125" max="32767" attributes="0"/>
+                  <Component id="lastNameField" alignment="0" max="32767" attributes="0"/>
+                  <Component id="firstNameField" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
@@ -59,13 +59,13 @@
               <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="FirstNameField" min="-2" max="-2" attributes="0"/>
+              <Component id="firstNameField" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="LastNameField" min="-2" max="-2" attributes="0"/>
+              <Component id="lastNameField" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="PrefName" min="-2" max="-2" attributes="0"/>
+                      <Component id="prefName" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="AddPhotoButton" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -84,28 +84,28 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JTextField" name="FirstNameField">
+    <Component class="javax.swing.JTextField" name="firstNameField">
       <Properties>
         <Property name="text" type="java.lang.String" value="First Name"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="FirstNameFieldActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="firstNameFieldActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="LastNameField">
+    <Component class="javax.swing.JTextField" name="lastNameField">
       <Properties>
         <Property name="text" type="java.lang.String" value="Last Name"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="LastNameFieldActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="lastNameFieldActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="PrefName">
+    <Component class="javax.swing.JTextField" name="prefName">
       <Properties>
         <Property name="text" type="java.lang.String" value="Peffered Name"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PrefNameActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="prefNameActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="AddPhotoButton">
