@@ -5,6 +5,7 @@
  */
 package SignInApp;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.io.IOException;
@@ -28,13 +29,7 @@ public class CreateAccountPanel extends javax.swing.JFrame {
     public CreateAccountPanel() {
         initComponents();
     }
-    public CreateAccountPanel(String file_path){
-        path = file_path;
-    }
-    public CreateAccountPanel( String file_path, boolean append_value){
-        path = file_path;
-        append_to_file = append_value;
-    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -48,7 +43,6 @@ public class CreateAccountPanel extends javax.swing.JFrame {
         firstNameField = new javax.swing.JTextField();
         lastNameField = new javax.swing.JTextField();
         prefName = new javax.swing.JTextField();
-        AddPhotoButton = new javax.swing.JButton();
         Finished = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -70,17 +64,10 @@ public class CreateAccountPanel extends javax.swing.JFrame {
             }
         });
 
-        prefName.setText("Peffered Name");
+        prefName.setText("Preffered Name");
         prefName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 prefNameActionPerformed(evt);
-            }
-        });
-
-        AddPhotoButton.setText("Add Photo");
-        AddPhotoButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AddPhotoButtonActionPerformed(evt);
             }
         });
 
@@ -106,10 +93,12 @@ public class CreateAccountPanel extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(140, 140, 140)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(prefName, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
-                    .addComponent(lastNameField)
-                    .addComponent(firstNameField))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(prefName, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
+                        .addComponent(lastNameField)
+                        .addComponent(firstNameField))
+                    .addComponent(ProfessorCheck, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -120,10 +109,7 @@ public class CreateAccountPanel extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addGap(158, 158, 158))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(Finished, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(AddPhotoButton, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
-                            .addComponent(ProfessorCheck, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(Finished, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(154, 154, 154))))
         );
         layout.setVerticalGroup(
@@ -136,17 +122,15 @@ public class CreateAccountPanel extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lastNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(prefName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(AddPhotoButton))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(ProfessorCheck))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(3, 3, 3)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ProfessorCheck)
-                .addGap(9, 9, 9)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(34, 34, 34)
                 .addComponent(Finished)
                 .addContainerGap(66, Short.MAX_VALUE))
         );
@@ -157,7 +141,6 @@ public class CreateAccountPanel extends javax.swing.JFrame {
     private void firstNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstNameFieldActionPerformed
         // TODO add your handling code here:
         firstName = firstNameField.getText();
-        getFirst(firstName);
     }//GEN-LAST:event_firstNameFieldActionPerformed
 
     private void FinishedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FinishedActionPerformed
@@ -165,6 +148,15 @@ public class CreateAccountPanel extends javax.swing.JFrame {
             
         }
         else{
+            firstNameFieldActionPerformed(evt);
+            lastNameFieldActionPerformed(evt);
+            prefNameActionPerformed(evt);
+            try {
+                writeToFile();
+            } catch (IOException ex) {
+                Logger.getLogger(CreateAccountPanel.class.getName()).log(Level.SEVERE, null, ex);
+            }
+           
            StudentMainMenuFrame frame = new StudentMainMenuFrame();
            frame.setVisible(true);
            dispose();
@@ -172,10 +164,6 @@ public class CreateAccountPanel extends javax.swing.JFrame {
         
     }//GEN-LAST:event_FinishedActionPerformed
     
-    private void AddPhotoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddPhotoButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_AddPhotoButtonActionPerformed
-
     private void lastNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lastNameFieldActionPerformed
         // TODO add your handling code here:
         lastName = lastNameField.getText();
@@ -228,7 +216,6 @@ public class CreateAccountPanel extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton AddPhotoButton;
     private javax.swing.JButton Finished;
     private javax.swing.JCheckBox ProfessorCheck;
     private javax.swing.JTextField firstNameField;
@@ -238,7 +225,7 @@ public class CreateAccountPanel extends javax.swing.JFrame {
     private javax.swing.JTextField prefName;
     // End of variables declaration//GEN-END:variables
     public String getFirst(String first){
-        return firstName ;
+        return first;
     }
     public String getLast(){
         return lastName;
@@ -246,18 +233,35 @@ public class CreateAccountPanel extends javax.swing.JFrame {
     public String getPreffered(){
         return prefferedName;
     }
-    public void writeToFile( String textLine ) throws IOException {
-        String first = null;
-        first = getFirst(first);
-        String last = getLast();
-        String preffered = getPreffered();
-        FileWriter write = new FileWriter( path , append_to_file);
-        PrintWriter print_line = new PrintWriter( write );
-        print_line.print(first);
-        print_line.print(last);
-        print_line.print(preffered);
-        print_line.close();
-        
-    }    
+    public CreateAccountPanel(String file_path){
+        path = file_path;
+    }
+    public CreateAccountPanel( String file_path, boolean append_value){
+        path = file_path;
+        append_to_file = append_value;
+    }
+    public void writeToFile() throws IOException {
+        //String first = getFirst(firstName);
+        //String last = getLast();
+        //String preffered = getPreffered();
+      //  FileWriter write = new FileWriter( path , append_to_file);
+        File textfile = new File("info.txt");
+        try{
+            PrintWriter print_line = new PrintWriter( textfile );
+            print_line.print(firstName);
+            print_line.println();
+            print_line.print(lastName);
+            print_line.println();
+            print_line.print(prefferedName);
+            print_line.close();
+        }
+        catch(Exception e){
+            System.out.println("please don't leave any field blank");
+            System.out.println("if you go by your first name just");
+            System.out.println("just re-enter first name in field");
+            
+        }
+    }
+}    
 
-}
+

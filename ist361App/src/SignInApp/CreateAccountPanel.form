@@ -25,10 +25,13 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="140" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="prefName" pref="125" max="32767" attributes="0"/>
-                  <Component id="lastNameField" alignment="0" max="32767" attributes="0"/>
-                  <Component id="firstNameField" alignment="0" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="prefName" pref="125" max="32767" attributes="0"/>
+                      <Component id="lastNameField" alignment="0" max="32767" attributes="0"/>
+                      <Component id="firstNameField" alignment="0" max="32767" attributes="0"/>
+                  </Group>
+                  <Component id="ProfessorCheck" min="-2" pref="93" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
@@ -42,11 +45,7 @@
                       <EmptySpace min="-2" pref="158" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="Finished" max="32767" attributes="0"/>
-                          <Component id="AddPhotoButton" pref="93" max="32767" attributes="0"/>
-                          <Component id="ProfessorCheck" max="32767" attributes="0"/>
-                      </Group>
+                      <Component id="Finished" min="-2" pref="93" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="154" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -63,20 +62,18 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="lastNameField" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Component id="prefName" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="AddPhotoButton" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="ProfessorCheck" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
-                      <Component id="jLabel2" max="32767" attributes="0"/>
+                      <Component id="jLabel2" min="-2" pref="58" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="ProfessorCheck" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
               <Component id="Finished" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="66" max="32767" attributes="0"/>
           </Group>
@@ -102,18 +99,10 @@
     </Component>
     <Component class="javax.swing.JTextField" name="prefName">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Peffered Name"/>
+        <Property name="text" type="java.lang.String" value="Preffered Name"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="prefNameActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="AddPhotoButton">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Add Photo"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AddPhotoButtonActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="Finished">

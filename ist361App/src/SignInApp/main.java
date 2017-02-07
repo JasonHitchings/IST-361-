@@ -11,7 +11,7 @@ public class main {
          String file_name = "User Info";
          CreateAccountPanel panel = new CreateAccountPanel();
          panel.setVisible(true);
-         CreateAccountPanel data = new CreateAccountPanel( file_name);
-         data.writeToFile("info");
+         //CreateAccountPanel data = new CreateAccountPanel( file_name);
+         //data.writeToFile();
      }
 }
