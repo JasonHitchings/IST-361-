@@ -34,6 +34,8 @@ public class StudentMainMenuFrame extends javax.swing.JFrame {
 
         studentInfoButton = new javax.swing.JButton();
         addClassButton = new javax.swing.JButton();
+        defaultClass = new javax.swing.JButton();
+        class1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -51,12 +53,17 @@ public class StudentMainMenuFrame extends javax.swing.JFrame {
             }
         });
 
+        defaultClass.setText("Ist 250");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(studentInfoButton)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(class1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(defaultClass, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(studentInfoButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 210, Short.MAX_VALUE)
                 .addComponent(addClassButton, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -66,7 +73,11 @@ public class StudentMainMenuFrame extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(studentInfoButton)
                     .addComponent(addClassButton))
-                .addGap(0, 277, Short.MAX_VALUE))
+                .addGap(27, 27, 27)
+                .addComponent(defaultClass, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addComponent(class1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 169, Short.MAX_VALUE))
         );
 
         pack();
@@ -122,6 +133,8 @@ public class StudentMainMenuFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addClassButton;
+    private javax.swing.JButton class1;
+    private javax.swing.JButton defaultClass;
     private javax.swing.JButton studentInfoButton;
     // End of variables declaration//GEN-END:variables
 }

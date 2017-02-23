@@ -13,7 +13,7 @@ import java.io.BufferedReader;
  * @author Jason
  */
 public class getStudentInfo {
-
+// figure out why only last name is being read for next sprint
 public String[] info(){ 
     String sInfo[] = new String[3];
     int a=0;

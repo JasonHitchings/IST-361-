@@ -24,7 +24,11 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <Component id="studentInfoButton" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                  <Component id="class1" alignment="0" max="32767" attributes="0"/>
+                  <Component id="defaultClass" alignment="0" max="32767" attributes="0"/>
+                  <Component id="studentInfoButton" alignment="0" max="32767" attributes="0"/>
+              </Group>
               <EmptySpace pref="210" max="32767" attributes="0"/>
               <Component id="addClassButton" min="-2" pref="99" max="-2" attributes="0"/>
           </Group>
@@ -37,7 +41,11 @@
                   <Component id="studentInfoButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="addClassButton" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="0" pref="277" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+              <Component id="defaultClass" min="-2" pref="27" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+              <Component id="class1" min="-2" pref="27" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="169" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -58,6 +66,13 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addClassButtonActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="defaultClass">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Ist 250"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="class1">
     </Component>
   </SubComponents>
 </Form>
