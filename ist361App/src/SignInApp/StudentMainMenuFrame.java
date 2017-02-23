@@ -38,8 +38,18 @@ public class StudentMainMenuFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         studentInfoButton.setText("StudentInfo");
+        studentInfoButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                studentInfoButtonActionPerformed(evt);
+            }
+        });
 
         addClassButton.setText("AddClass");
+        addClassButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addClassButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -61,6 +71,19 @@ public class StudentMainMenuFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void studentInfoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_studentInfoButtonActionPerformed
+        // TODO add your handling code here:
+        UserInfoForm infoFrame = new UserInfoForm();
+        infoFrame.getInfo(evt);
+        infoFrame.setVisible(true);
+        
+    }//GEN-LAST:event_studentInfoButtonActionPerformed
+
+    private void addClassButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addClassButtonActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_addClassButtonActionPerformed
 
     /**
      * @param args the command line arguments

@@ -17,6 +17,13 @@ public class storeStudentInfo {
     String firstName;
     String lastName;
     String prefferedName;
+    public void getStudentName(String first, String last, String preffered) throws IOException{
+        this.firstName = first;
+        this.lastName = last;
+        this.prefferedName = preffered;
+        writeToFile();
+    }
+   
     public void writeToFile() throws IOException {
         //String first = getFirst(firstName);
         //String last = getLast();

@@ -142,7 +142,8 @@ public class CreateAccountPanel extends javax.swing.JFrame {
         // TODO add your handling code here:
         firstName = firstNameField.getText();
     }//GEN-LAST:event_firstNameFieldActionPerformed
-
+        // nothing happens unless the user clicks finish
+        // this section basically calls all the actual functionality
     private void FinishedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FinishedActionPerformed
         if (profCheck == 1){
             
@@ -151,11 +152,17 @@ public class CreateAccountPanel extends javax.swing.JFrame {
             firstNameFieldActionPerformed(evt);
             lastNameFieldActionPerformed(evt);
             prefNameActionPerformed(evt);
+            storeStudentInfo store = new storeStudentInfo();
             try {
-                writeToFile();
+                store.getStudentName(firstName, lastName, prefferedName);
             } catch (IOException ex) {
                 Logger.getLogger(CreateAccountPanel.class.getName()).log(Level.SEVERE, null, ex);
             }
+           // try {
+          //      writeToFile();
+          //  } catch (IOException ex) {
+          //      Logger.getLogger(CreateAccountPanel.class.getName()).log(Level.SEVERE, null, ex);
+         //   }
            
            StudentMainMenuFrame frame = new StudentMainMenuFrame();
            frame.setVisible(true);
@@ -176,7 +183,12 @@ public class CreateAccountPanel extends javax.swing.JFrame {
 
     private void ProfessorCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProfessorCheckActionPerformed
         // TODO add your handling code here:
-         profCheck = 1;
+        if(profCheck == 0){ 
+        profCheck = 1;
+        }
+        else if(profCheck == 1){
+            profCheck = 0;
+        }
     }//GEN-LAST:event_ProfessorCheckActionPerformed
 
     
@@ -224,6 +236,8 @@ public class CreateAccountPanel extends javax.swing.JFrame {
     private javax.swing.JTextField lastNameField;
     private javax.swing.JTextField prefName;
     // End of variables declaration//GEN-END:variables
+   
+    // getters
     public String getFirst(String first){
         return first;
     }
@@ -233,6 +247,8 @@ public class CreateAccountPanel extends javax.swing.JFrame {
     public String getPreffered(){
         return prefferedName;
     }
+    
+    // I forget what these are for
     public CreateAccountPanel(String file_path){
         path = file_path;
     }
@@ -240,7 +256,9 @@ public class CreateAccountPanel extends javax.swing.JFrame {
         path = file_path;
         append_to_file = append_value;
     }
-    public void writeToFile() throws IOException {
+    // old test file writer, no longer used
+    
+    /*public void writeToFile() throws IOException {
         //String first = getFirst(firstName);
         //String last = getLast();
         //String preffered = getPreffered();
@@ -261,7 +279,7 @@ public class CreateAccountPanel extends javax.swing.JFrame {
             System.out.println("just re-enter first name in field");
             
         }
-    }
+    }*/
 }    
 
 
