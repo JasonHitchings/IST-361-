@@ -166,6 +166,7 @@ public class CreateAccountPanel extends javax.swing.JFrame {
            
            StudentMainMenuFrame frame = new StudentMainMenuFrame();
            frame.setVisible(true);
+           frame.getInfo();
            dispose();
         }
         

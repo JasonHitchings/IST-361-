@@ -50,6 +50,7 @@ public class UserInfoForm extends javax.swing.JFrame {
         fNameField = new javax.swing.JTextField();
         lNameField = new javax.swing.JTextField();
         pNameField = new javax.swing.JTextField();
+        doneButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -71,6 +72,13 @@ public class UserInfoForm extends javax.swing.JFrame {
             }
         });
 
+        doneButton.setText("Done");
+        doneButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                doneButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -82,6 +90,10 @@ public class UserInfoForm extends javax.swing.JFrame {
                     .addComponent(fNameField)
                     .addComponent(pNameField, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE))
                 .addContainerGap(150, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(150, 150, 150)
+                .addComponent(doneButton, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -92,7 +104,9 @@ public class UserInfoForm extends javax.swing.JFrame {
                 .addComponent(lNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32)
                 .addComponent(pNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(137, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
+                .addComponent(doneButton)
+                .addGap(42, 42, 42))
         );
 
         pack();
@@ -112,6 +126,11 @@ public class UserInfoForm extends javax.swing.JFrame {
         // TODO add your handling code here:
         pNameField.setText(pName);
     }//GEN-LAST:event_pNameFieldActionPerformed
+
+    private void doneButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doneButtonActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_doneButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -149,6 +168,7 @@ public class UserInfoForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton doneButton;
     private javax.swing.JTextField fNameField;
     private javax.swing.JTextField lNameField;
     private javax.swing.JTextField pNameField;
